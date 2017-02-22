@@ -1,0 +1,22 @@
+{
+  "name": "linguarium",
+  "version": "1.0.0",
+  "description": "MVP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.14.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dz14/Linguarium.git"
+  },
+  "author": "Linguarium",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dz14/Linguarium/issues"
+  },
+  "homepage": "https://github.com/dz14/Linguarium#readme"
+}
