@@ -1,9 +1,12 @@
 .main-class {
   width: 50%;
+  float: left;
+  background-color: #fff;
 }
 
 .students {
   width: 30%;
+  float: right;
 }
 
 .textarea {
