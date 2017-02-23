@@ -12,7 +12,7 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('port', (process.env.PORT || 3000));
 //start the server and notify it start with the address in the console
-app.listen(port, function () {
+var server = app.listen(port, function () {
   console.log('Server running on port', app.get('port'));
 });
 
@@ -26,7 +26,7 @@ app.get('/class',function(req,res){
 
 
 // Initiating socket.io connection
-var io = require('socket.io')();
+var io = require('socket.io')(server);
 io.on('connection', function(client){
 	// Listening for outgoing text messages to be broadcasted
 	client.on('text_message', function(data){
