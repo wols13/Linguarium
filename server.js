@@ -27,6 +27,8 @@ app.get('/class',function(req,res){
 
 // Initiating socket.io connection
 var io = require('socket.io')();
+io.set('transports', ['xhr-polling']);
+io.set('polling duration', 10);
 io.on('connection', function(client){
 	// Listening for outgoing text messages to be broadcasted
 	client.on('text_message', function(data){
