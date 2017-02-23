@@ -24,3 +24,13 @@ app.get('/',function(req,res){
 app.get('/class',function(req,res){
     res.render('class');
 });
+
+// Initiating socket.io connection
+var io = require('socket.io')();
+io.on('connection', function(client){
+	// Listening for outgoing text messages to be broadcasted
+	client.on('text_message', function(data){
+		client.broadcast.emit('text_message', data);
+	});
+});
+io.listen(3010);

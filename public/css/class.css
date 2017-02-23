@@ -46,3 +46,38 @@ h1#class-text {
   color: #000;
   font-size: 40px;
 }
+
+p#past-messages {
+  background-color: antiquewhite;
+  height: 64%;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+}
+
+section#dictionary input {
+  color: black;
+  border: 2px solid black;
+}
+
+.my_message {
+	color: black;
+    float: right;
+	clear: both;
+    background-color: lightcoral;
+    border-radius: 4px;
+    margin: 2px 0;
+    padding: 3px 7px;
+	max-width: 65%;
+}
+
+.not_my_message {
+	color: black;
+    float: left;
+	clear: both;
+    background-color: lightblue;
+    border-radius: 4px;
+    margin: 2px 0;
+    padding: 3px 7px;
+	max-width: 65%;
+}
