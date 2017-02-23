@@ -28,11 +28,11 @@ app.get('/class',function(req,res){
 
 var server = http.createServer(app);
 // Initiating socket.io connection
-var io = require('socket.io')();
+var io = require('socket.io').listen(server);
 io.on('connection', function(client){
 	// Listening for outgoing text messages to be broadcasted
 	client.on('text_message', function(data){
 		client.broadcast.emit('text_message', data);
 	});
 });
-io.listen(server);
+//io.listen(server);
