@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io.connect();
 
 // Handling incoming text message
 socket.on('text_message', function(data){
@@ -14,7 +14,7 @@ $("#new-message").keypress(function(e){
 		// Send the text, clear input field and update message buble
 		var new_message = $("#new-message").val();
 		socket.emit('text_message', new_message);
-		
+
 		$("#new-message").val('');
 		new_message = "<span class='my_message'>" + new_message + "</span><br>";
 		$("#past-messages").append(new_message);
