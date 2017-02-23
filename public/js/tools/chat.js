@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io('http://localhost:3010');
 
 // Handling incoming text message
 socket.on('text_message', function(data){
