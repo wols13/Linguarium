@@ -33,4 +33,4 @@ io.on('connection', function(client){
 		client.broadcast.emit('text_message', data);
 	});
 });
-io.listen(process.env.PORT);
+io.listen(3010);
