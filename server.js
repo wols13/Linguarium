@@ -1,8 +1,6 @@
 var port = process.env.PORT||3000;
 var express = require('express');
 var path    = require("path");
-var http = require('http');
-
 
 //the server code
 //create the server and also handle requests
@@ -26,13 +24,13 @@ app.get('/class',function(req,res){
     res.render('class');
 });
 
-var server = http.createServer(app);
+
 // Initiating socket.io connection
-var io = require('socket.io').listen(server);
+var io = require('socket.io')();
 io.on('connection', function(client){
 	// Listening for outgoing text messages to be broadcasted
 	client.on('text_message', function(data){
 		client.broadcast.emit('text_message', data);
 	});
 });
-//io.listen(server);
+io.listen(3010);
