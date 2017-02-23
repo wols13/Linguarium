@@ -15,28 +15,7 @@ html
     // Page Wrapper
     #page-wrapper
       // Header
-      header#header.alt
-        h1
-          a(href='index.html') Linguarium
-        nav#nav
-          ul
-            li.special
-              a.menuToggle(href='#menu')
-                span Menu
-              #menu
-                ul
-                  li
-                    a(href='views/index.jade') Home
-                  li
-                    a(href='generic.html') Generic
-                  li
-                    a(href='elements.html') Elements
-                  li
-                    a(href='views/class.jade') Class Demo
-                  li
-                    a(href='#') Sign Up
-                  li
-                    a(href='#') Log In
+      include ../includes/header
       // Banner
       section#banner
         .inner
@@ -144,28 +123,7 @@ html
             li
               a.button.fit(href='#') Learn More
       // Footer
-      footer#footer
-        ul.icons
-          li
-            a.icon.fa-twitter(href='#')
-              span.label Twitter
-          li
-            a.icon.fa-facebook(href='#')
-              span.label Facebook
-          li
-            a.icon.fa-instagram(href='#')
-              span.label Instagram
-          li
-            a.icon.fa-dribbble(href='#')
-              span.label Dribbble
-          li
-            a.icon.fa-envelope-o(href='#')
-              span.label Email
-        ul.copyright
-          li © Linguarium
-          li
-            | Design:
-            a(href='http://html5up.net') HTML5 UP
+      include ../includes/footer
     // Scripts
     script(src='js/jquery.min.js')
     script(src='js/jquery.scrollex.min.js')
