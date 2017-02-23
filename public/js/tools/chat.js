@@ -1,4 +1,4 @@
-var socket = io("http://linguarium.herokuapp.com:3010");
+var socket = io();
 
 // Handling incoming text message
 socket.on('text_message', function(data){

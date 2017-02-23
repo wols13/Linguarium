@@ -2,7 +2,6 @@ var port = process.env.PORT||3000;
 var express = require('express');
 var path    = require("path");
 
-
 //the server code
 //create the server and also handle requests
 var app = express();
@@ -24,6 +23,7 @@ app.get('/',function(req,res){
 app.get('/class',function(req,res){
     res.render('class');
 });
+
 
 // Initiating socket.io connection
 var io = require('socket.io')();
