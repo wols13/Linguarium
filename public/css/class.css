@@ -1,17 +1,48 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
-section.teacher-display {
-  width: 50%;
+section#class-display {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+
+section#teacher-display {
+  width: 70%;
+  height: 70%;
   float: left;
+  border-style: groove;
+  border-color: #000;
+  border-width: thick;
   background-color: #fff;
 }
 
-.dictionary {
+section#dictionary {
   width: 30%;
+  height: 70%;
   float: right;
+  border-style: groove;
+  border-color: #000;
+  border-width: thick;
+  background-color: #fff;
 }
 
-.text-panel {
-  width: 100%
+section#text-panel {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  border-style: inset;
+  border-color: #000;
+  border-width: thick;
+  background-color: #fff;
+}
+
+
+h1#class-text {
+  color: #000;
+  font-size: 40px;
 }
