@@ -3,7 +3,7 @@ var socket = io.connect(window.location.hostname);
 // Handling incoming text message
 socket.on('coordinates', function(data){
 	// $("#teacher-display").
-	var color = 'red';
+	var color = '#ff0000';
   var size = '10px';
   $("#teacher-display").append(
   $('<div></div>')
