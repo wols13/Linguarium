@@ -1,9 +1,3 @@
-if (location.hostname === "localhost") {
-	var socket = io.connect()
-} else {
-	var socket = io.connect(window.location.hostname);
-}
-
 // Handling incoming text message
 socket.on('coordinates', function(data){
 	console.log(data);

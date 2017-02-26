@@ -12,7 +12,6 @@ function namePrompt() {
 // Handling incoming text message
 socket.on('text_message', function(data){
 	var new_message = "<span class='not_my_message'>" + data.user + ": " +  data.message + "</span><br>";
-	console.log(new_message);
 	$("#past-messages").append(new_message);
 });
 
