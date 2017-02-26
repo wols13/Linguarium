@@ -1,3 +1,9 @@
+var name = "";
+
+function namePrompt() {
+	name = prompt("Please enter your name", "");
+}
+
 if (location.hostname === "localhost") {
 	var socket = io.connect()
 } else {

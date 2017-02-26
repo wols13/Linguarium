@@ -22,7 +22,7 @@ section#teacher-display {
   background-image: url("/images/mock_1.jpg");
 }
 
-section#dictionary {
+section#text-panel {
   width: 30%;
   height: 70%;
   float: right;
@@ -32,10 +32,20 @@ section#dictionary {
   background-color: #fff;
 }
 
-section#text-panel {
-  width: 100%;
+section#dictionary {
+  width: 70%;
   height: 30%;
-  display: flex;
+  float: left;
+  border-style: inset;
+  border-color: #000;
+  border-width: thick;
+  background-color: #fff;
+}
+
+section#your-camera {
+  width: 30%;
+  height: 30%;
+  float: right;
   border-style: inset;
   border-color: #000;
   border-width: thick;
@@ -50,15 +60,19 @@ h1#class-text {
 
 p#past-messages {
   background-color: antiquewhite;
-  height: 64%;
+  height: 66%;
   margin: 0;
   padding: 10px;
   overflow: auto;
 }
 
-section#dictionary input {
+section#text-panel input {
   color: black;
   border: 2px solid black;
+}
+
+#menu {
+    color: #000 !important
 }
 
 .my_message {
