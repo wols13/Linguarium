@@ -1,4 +1,13 @@
-var socket = io.connect(window.location.hostname);
+if (location.hostname === "localhost") {
+	var socket = io.connect()
+} else {
+	var socket = io.connect(window.location.hostname);
+}
+var name = "";
+
+function namePrompt() {
+	name = prompt("Please enter your name", "");
+}
 
 // Handling incoming text message
 socket.on('text_message', function(data){
@@ -16,7 +25,7 @@ $("#new-message").keypress(function(e){
 		socket.emit('text_message', new_message);
 
 		$("#new-message").val('');
-		new_message = "<span class='my_message'>" + new_message + "</span><br>";
+		new_message = "<span class='my_message'>" + name + ": " + new_message + "</span><br>";
 		$("#past-messages").append(new_message);
 		return false;
     }
