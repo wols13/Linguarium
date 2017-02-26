@@ -6,6 +6,7 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     //if lte IE 8
       script(src='assets/js/ie/html5shiv.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js')
     link(rel='stylesheet', href='css/main.css')
     link(rel='stylesheet', href='css/class.css')
     //if lte IE 8
@@ -21,12 +22,14 @@ html
       section#class-display
         section#teacher-display
           h1#class-text Main Teacher Area
-        section#dictionary
+        section#text-panel
           h1#class-text  Text messages
           p#past-messages
           input(type="text", name="user")#new-message
-        section#text-panel
+        section#dictionary
           h1#class-text  Dictionary, testing area, notes area?
+        section#your-camera
+          h1#class-text Your Camera
 
     // Scripts
     script(src='js/jquery.min.js')
@@ -35,9 +38,10 @@ html
     script(src='js/skel.min.js')
     script(src='js/util.js')
     script(src='https://cdn.socket.io/socket.io-1.7.3.js')
-    script(src='js/tools/socket.js')
-    script(src='js/tools/chat.js')
-    script(src='js/tools/visualcue.js')
+    
+    //Add any new scripts here
+    script(src='js/tools/script_control.js')
+    
     //if lte IE 8
-    script(src='assets/js/ie/respond.min.js')
+    script(src='js/ie/respond.min.js')
     script(src='js/main.js')

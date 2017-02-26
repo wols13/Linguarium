@@ -1,8 +1,23 @@
-var name = "";
+//Connect and add to userlist
+socket.on('connect', function(){
+	socket.emit('user_connected', {user: name});
+});
 
-function namePrompt() {
-	name = prompt("Please enter your name", "");
-}
+//User disconnected, send signal for disconnect
+socket.on('disconnect', function() {
+	socket.emit('user_disconnected', {user: name});
+});
+
+
+socket.on('user_connected', function(data) {
+	var new_message = "<span class='generic_message'>" + data.user + " has connected" + "</span><br>";
+	$("#past-messages").append(new_message);
+});
+
+socket.on('user_disconnected', function(data) {
+	var new_message = "<span class='generic_message'>" + data.user + " has disconnected" + "</span><br>";
+	$("#past-messages").append(new_message);
+});
 
 // Handling incoming text message
 socket.on('text_message', function(data){
