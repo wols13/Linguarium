@@ -13,7 +13,7 @@ $("#new-message").keypress(function(e){
     if (keyCode == '13'){
 		// Send the text, clear input field and update message buble
 		var new_message = $("#new-message").val();
-		socket.emit('text_message', new_message);
+		socket.broadcast.emit('text_message', new_message);
 
 		$("#new-message").val('');
 		new_message = "<span class='my_message'>" + new_message + "</span><br>";
