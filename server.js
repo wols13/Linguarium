@@ -20,6 +20,10 @@ app.get('/',function(req,res){
     res.render('index');
 });
 
+app.get('/teacher_demo', function(req, res) {
+  res.render('teacher_demo');
+});
+
 app.get('/class',function(req,res){
     res.render('class');
 });
@@ -32,6 +36,12 @@ io.on('connection', function(client){
 	client.on('text_message', function(data){
 		client.broadcast.emit('text_message', data);
 	});
+  client.on('user_connected', function(data){
+    client.broadcast.emit('user_connected', data);
+  });
+  client.on('user_disconnected', function(data){
+    client.broadcast.emit('user_disconnected', data);
+  });
   client.on('coordinates', function(data){
 		client.broadcast.emit('coordinates', data);
 	});

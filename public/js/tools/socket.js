@@ -1,4 +1,4 @@
-var name = "";
+var name = "Default";
 
 function namePrompt() {
 	name = prompt("Please enter your name", "");

@@ -89,10 +89,21 @@ section#text-panel input {
 .not_my_message {
 	color: black;
     float: left;
-	clear: both;
+	  clear: both;
     background-color: lightblue;
     border-radius: 4px;
     margin: 2px 0;
     padding: 3px 7px;
 	max-width: 65%;
+}
+
+.generic_message {
+  color: black;
+    float: left;
+    clear: both;
+    background-color: white;
+    border-radius: 4px;
+    margin: 2px 0;
+    padding: 3px 7px;
+    max-width: 65%;
 }
