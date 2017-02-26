@@ -16,9 +16,10 @@ section#teacher-display {
   height: 70%;
   float: left;
   border-style: groove;
-  border-color: #000;
+  /*border-color: #000;*/
   border-width: thick;
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background-image: url("/images/mock_1.jpg");
 }
 
 section#dictionary {

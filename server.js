@@ -32,5 +32,8 @@ io.on('connection', function(client){
 	client.on('text_message', function(data){
 		client.broadcast.emit('text_message', data);
 	});
+  client.on('coordinates', function(data){
+		client.broadcast.emit('coordinates', data);
+	});
 });
 io.listen(3010);

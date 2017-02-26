@@ -12,12 +12,12 @@ html
       link(rel='stylesheet', href='assets/css/ie8.css')
     //if lte IE 9
       link(rel='stylesheet', href='assets/css/ie9.css')
-  body.landing
+  body(onload="namePrompt()").landing
     // Page Wrapper
     #page-wrapper
       // Header
       include ../includes/header
-      
+
       section#class-display
         section#teacher-display
           h1#class-text Main Teacher Area
@@ -27,7 +27,7 @@ html
           input(type="text", name="user")#new-message
         section#text-panel
           h1#class-text  Dictionary, testing area, notes area?
-        
+
     // Scripts
     script(src='js/jquery.min.js')
     script(src='js/jquery.scrollex.min.js')
@@ -36,6 +36,7 @@ html
     script(src='js/util.js')
     script(src='https://cdn.socket.io/socket.io-1.7.3.js')
     script(src='js/tools/chat.js')
+    script(src='js/tools/visualcue.js')
     //if lte IE 8
-      script(src='assets/js/ie/respond.min.js')
+    script(src='assets/js/ie/respond.min.js')
     script(src='js/main.js')
