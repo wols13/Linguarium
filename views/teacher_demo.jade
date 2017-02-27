@@ -23,13 +23,25 @@ html
         section#teacher-display
           h1#class-text Main Teacher Area
         section#text-panel
-          h1#class-text  Text messages
-          p#past-messages
-          input(type="text", name="user")#new-message
+          div.tab
+            a(href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'messages')"  id="defaultOpen") Messages
+            a(href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'users')") Users
+          div#messages.tabcontent
+            p#past-messages
+            input(type="text", name="user")#new-message
+          div#Users.tabcontent
+            ul#users
+              li Sup
         section#dictionary
-          h1#class-text  Dictionary, testing area, notes area?
-        section#your-camera
-          h1#class-text Your Camera
+          div.tab
+            a(href="javascript:void(0)" class="tablinks2" onclick="openTab(event, 'class_cameras')"  id="defaultOpen") Class Cameras
+            a(href="javascript:void(0)" class="tablinks2" onclick="openTab(event, 'dictionary')") Dictionary
+            a(href="javascript:void(0)" class="tablinks2" onclick="openTab(event, 'grammar_rules')") Grammar Rules
+            a(href="javascript:void(0)" class="tablinks2" onclick="openTab(event, 'testing_area')") Testing Area
+            a(href="javascript:void(0)" class="tablinks2" onclick="openTab(event, 'notes')") Notes
+        section#tools
+          h1 Student tools
+        video#video(autoplay)
 
     // Scripts
     script(src='js/jquery.min.js')
