@@ -6,14 +6,14 @@ section#class-display {
   position: fixed;
   width: 100%;
   height: 100%;
-
+  margin-top: 3em;
   top: 0;
   left: 0;
 }
 
 section#teacher-display {
   width: 70%;
-  height: 70%;
+  height: 65%;
   float: left;
   border-style: groove;
   /*border-color: #000;*/
@@ -24,17 +24,15 @@ section#teacher-display {
 
 section#text-panel {
   width: 30%;
-  height: 70%;
+  height: 65%;
   float: right;
-  border-style: groove;
-  border-color: #000;
-  border-width: thick;
-  background-color: #fff;
+  position: relative;
+  display: table;
 }
 
 section#dictionary {
-  width: 70%;
-  height: 30%;
+  width: 50%;
+  height: 35%;
   float: left;
   border-style: inset;
   border-color: #000;
@@ -42,9 +40,19 @@ section#dictionary {
   background-color: #fff;
 }
 
-section#your-camera {
+section#tools {
+  width: 20%;
+  height: 35%;
+  float: left;
+  border-style: inset;
+  border-color: #000;
+  border-width: thick;
+  background-color: #fff;
+}
+
+video#video {
   width: 30%;
-  height: 30%;
+  height: 35%;
   float: right;
   border-style: inset;
   border-color: #000;
@@ -59,7 +67,13 @@ h1#class-text {
 }
 
 p#past-messages {
-  background-color: antiquewhite;
+  height: 66%;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+}
+
+#users {
   height: 66%;
   margin: 0;
   padding: 10px;
@@ -67,8 +81,14 @@ p#past-messages {
 }
 
 section#text-panel input {
+  background-color: white;
   color: black;
   border: 2px solid black;
+  position: absolute;
+  border: solid;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 #menu {
@@ -77,33 +97,84 @@ section#text-panel input {
 
 .my_message {
 	color: black;
-    float: right;
+  float: right;
 	clear: both;
-    background-color: lightcoral;
-    border-radius: 4px;
-    margin: 2px 0;
-    padding: 3px 7px;
+  background-color: lightcoral;
+  border-radius: 4px;
+  margin: 2px 0;
+  padding: 3px 7px;
 	max-width: 65%;
 }
 
 .not_my_message {
 	color: black;
-    float: left;
-	  clear: both;
-    background-color: lightblue;
-    border-radius: 4px;
-    margin: 2px 0;
-    padding: 3px 7px;
+  float: left;
+	clear: both;
+  background-color: lightblue;
+  border-radius: 4px;
+  margin: 2px 0;
+  padding: 3px 7px;
 	max-width: 65%;
 }
 
 .generic_message {
   color: black;
-    float: left;
-    clear: both;
-    background-color: white;
-    border-radius: 4px;
-    margin: 2px 0;
-    padding: 3px 7px;
-    max-width: 65%;
+  float: left;
+  clear: both;
+  background-color: gray;
+  border-radius: 4px;
+  margin: 2px 0;
+  padding: 3px 7px;
+  max-width: 65%;
+}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 2px solid white;
+    background-color: orange;
+}
+
+/* Style the links inside the tab */
+.tablinks {
+  width: 50%;
+  float: left;
+  display: block;
+  border: 2px solid gray;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tablinks2 {
+  width: 20%;
+  float: left;
+  display: block;
+  border: 2px solid gray;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 12px;
+}
+
+/* Change background color of links on hover */
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
 }
