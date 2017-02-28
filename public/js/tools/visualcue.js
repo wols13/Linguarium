@@ -7,8 +7,8 @@ socket.on('coordinates', function(data){
   $("#teacher-display").append(
   $('<div></div>')
     .css('position', 'absolute')
-    .css('top', data[1] + 'px')
-    .css('left', data[0] + 'px')
+    .css('top', data[1] - 55 + 'px')
+    .css('left', data[0] - 5 + 'px')
     .css('width', size)
     .css('height', size)
     .css('background-color', color)
