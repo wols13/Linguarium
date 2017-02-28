@@ -48,6 +48,8 @@ html
                 {{entry.word}}
               span(style='font-size:14px; margin-left:10px; color:#000;')
                 {{entry.definition}}
+              button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled') Show Word
+              button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled') Remove Word
         section#tools
           form(ng-submit='addEntry()')
             h3#dictionary-header Add a New Dictionary Entry
@@ -72,7 +74,7 @@ html
     
     //Add any new scripts here
     
-
+    
     //if lte IE 8
     script(src='js/ie/respond.min.js')
     script(src='js/main.js')
