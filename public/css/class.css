@@ -22,6 +22,41 @@ section#teacher-display {
   background-image: url("/images/mock_1.jpg");
 }
 
+#subtitles {
+  width: 500px;
+  height: 100px;
+  background-color: gray;
+  opacity: .8;
+  border-radius: 25px;
+  padding: 20px;
+  position: relative;
+  top: 400px;
+  left: 200px;
+}
+
+.hidden-subtitle {
+  display: none;
+}
+
+#subtitle-header {
+  color: #000;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#subtitle-text {
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+}
+
+#entry-word {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 section#text-panel {
   width: 30%;
   height: 65%;
@@ -48,6 +83,17 @@ section#tools {
   border-color: #000;
   border-width: thick;
   background-color: #fff;
+}
+
+#dictionary-header {
+  color: #000;
+  text-align: center;
+}
+
+#dictionary-form {
+  color: #FFF;
+  background-color: #000;
+  text-align: center;
 }
 
 video#video {

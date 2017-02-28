@@ -45,5 +45,13 @@ io.on('connection', function(client){
   client.on('coordinates', function(data){
 		client.broadcast.emit('coordinates', data);
 	});
+
+  client.on('show_word', function(data){
+    client.broadcast.emit('show_word', data);
+  });
+
+  client.on('remove_word', function(data){
+    client.broadcast.emit('remove_word', data);
+  });
 });
 io.listen(3010);

@@ -25,6 +25,28 @@ socket.on('text_message', function(data){
 	$("#past-messages").append(new_message);
 });
 
+socket.on('show_word', function(data){
+  var subtitles = document.getElementById("subtitles");
+  subtitles.removeAttribute("class");
+  var subtitle_word = document.getElementById("subtitle-header");
+  var subtitle_definition = document.getElementById("subtitle-text");
+  subtitle_word.innerHTML = data.word;
+  subtitle_definition.innerHTML = data.definition;
+	var appElement = document.querySelector('[ng-app=dictionary]');
+	var $scope = angular.element(appElement).scope();
+	$scope.$apply(function() {
+		$scope.entries.push({
+			word: data.word,
+			definition: data.definition,
+		});
+	});
+});
+
+socket.on('remove_word', function(data) {
+	var subtitles = document.getElementById("subtitles");
+	subtitles.className += "hidden-subtitle";
+});
+
 // Handling event when user clicks enter to send text message
 $("#new-message").keypress(function(e){
 	if (!e) e = window.event;
