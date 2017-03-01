@@ -4,11 +4,19 @@ body {
     background-image: none;
 }
 
+#header.alt h1 {
+    opacity: 1;
+}
+
+#header.alt {
+    background: #2e3842;
+}
+
 #video-text-container {
 	position: absolute;
 	float: left;
-	height: calc(100% - 3em - 12px);
-	width: calc(21% - 12px);
+	height: calc(100% - 3em);
+	width: 21%;
 	margin: 3em 0 0 0;
 	padding: 6px;
 	z-index: 50;
@@ -17,8 +25,8 @@ body {
 #workspace-container {
 	position: absolute;
 	float: left;
-	height: calc(100% - 3em - 12px);
-	width: calc(58% - 14px);
+	height: calc(100% - 3em);
+	width: 58%;
 	padding: 6px;
 	margin: 3em 0 0 21%;
 	border-right: 1px solid #DDDDDD;
@@ -29,8 +37,8 @@ body {
 #tools-container {
 	position: absolute;
 	float: left;
-	height: calc(100% - 3em - 12px);
-	width: calc(21% - 12px);
+	height: calc(100% - 3em);
+	width: 21%;
 	padding: 6px;
 	margin: 3em 0 0 79%;
 	z-index: 50;
@@ -43,9 +51,8 @@ body {
 }
 
 #media-controls {
-	width: calc(100% - 1px);
+	width: 100%;
 	height: 22px;
-	margin: 2px 0 0 0;
 	background-color: #EEEEEE;
 	border-left: 1px solid #BBBBBB;
 	border-radius: 3px;
@@ -74,10 +81,11 @@ body {
 }
 
 .section-title {
-	width: calc(100% - 6px);
-	height: 19px;
+	width: 100%;
+	height: 25px;
 	background-color: #2e3842;
-	padding: 6px 0 0 6px;
+	padding: 0 0 0 6px;
+	letter-spacing: 0;
 	font-family: arial;
     color: white;
     font-size: 12px;
@@ -87,8 +95,8 @@ body {
 
 .section-body {
 	position: relative;
-	width: calc(100% - 2px);
-	height: calc(100% - 27px);
+	width: 100%;
+	height: calc(100% - 25px);
 	border: 1px solid #CCCCCC;
 	background-color: white;
 	border-bottom-left-radius: 3px;
@@ -97,16 +105,36 @@ body {
 
 #enter-message {
 	position: absolute;
-	bottom: 1px;
-	width: calc(100% - 12px);
+	bottom: 0;
+	width: 100%;
 	padding: 1px 6px;
 	height: 30px;
 	border-style: solid;
     border-width: 1px 0 0 0;
 	border-color: #CCCCCC;
+	border-radius: 0;
 	outline: none;
+	box-shadow: none;
 	font-family: arial;
 	font-size: 13px;
+	letter-spacing: 0;
+	background-color: initial;
+}
+
+*::-webkit-input-placeholder {
+    color: #777777 !important;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: #777777 !important;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: #777777 !important;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #777777 !important;
 }
 
 #workspace-main {
@@ -127,20 +155,31 @@ body {
 
 #tool-list {
 	width: 100%;
-	height: 41px;
-	border-radius: 3px;
+    height: 30px;
+    border-radius: 3px;
+    letter-spacing: 0;
+    background-color: #EEEEEE;
+    color: #2e3842;
+    font-family: arial;
+    font-size: 14px;
+	padding-left: 5px;
+	box-shadow: none;
+    border: 1px solid #BBBBBB;
+	cursor: pointer;
+	-webkit-appearance: menulist;
 }
 
 .tool-container {
 	width: 100%;
 	margin: 6px 0 0 0;
-	height: calc(100% - 47px);
+	height: calc(100% - 36px);
 }
 
 .button {
 	display: inline-block;
-	width: calc(25% - 1px);
-	height: calc(100% - 3px);
+	width: 25%;
+	line-height: 18px;
+	height: 100%;
 	text-align: center;
 	color: #2e3842;
 	padding: 1px 0 0 0;
@@ -148,6 +187,8 @@ body {
     border-width: 1px 1px 1px 0;
 	border-color: #BBBBBB;
 	cursor: pointer;
+	border-radius: 0;
+	box-shadow: none;
 }
 
 .button:hover {
