@@ -1,6 +1,10 @@
 doctype html
 html
   head
+    title Linguarium
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
   body
@@ -38,3 +42,21 @@ html
         .section-title
           span.section-title-desc Dictionary
         .section-body
+
+    // Scripts
+    script(src='js/jquery.min.js')
+    script(src='js/jquery.scrollex.min.js')
+    script(src='js/jquery.scrolly.min.js')
+    script(src='js/skel.min.js')
+    script(src='js/util.js')
+    script(src='https://cdn.socket.io/socket.io-1.7.3.js')
+    script(src='js/tools/script_control.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(src="js/tools/dictionary.js")
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') 
+    
+    //Add any new scripts here
+    
+    //if lte IE 8
+    script(src='js/ie/respond.min.js')
+    script(src='js/main.js')
