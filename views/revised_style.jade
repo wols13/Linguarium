@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    link(href='revised_style.css', rel='stylesheet')
+    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+  body
+    #video-text-container
+      img#main-video(src='teacher-video.jpg')
+      #media-controls
+        .button
+          i.fa.fa-microphone(aria-hidden='true')
+        .button
+          i.fa.fa-video-camera(aria-hidden='true')
+        .button
+          i.fa.fa-volume-up(aria-hidden='true')
+        .button
+          i.fa.fa-hand-paper-o(aria-hidden='true')
+      #userlist-chatbox
+        #userlist
+          .section-title
+            span.section-title-desc Users online
+          .section-body
+        #chatbox
+          .section-title
+            span.section-title-desc Chat
+          .section-body
+            input#enter-message(type='text', placeholder='Type a message...')
+    #workspace-container
+      #workspace-main
+        img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+    #tools-container
+      select#tool-list(name='tools')
+        option(value='dictionary', selected='selected') Dictionary
+        option(value='notes') Notes
+        option(value='flashcards') Flash cards
+      #dictionary-container.tool-container
+        .section-title
+          span.section-title-desc Dictionary
+        .section-body

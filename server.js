@@ -28,6 +28,10 @@ app.get('/class',function(req,res){
     res.render('class');
 });
 
+app.get('/revised_style',function(req,res){
+    res.render('revised_style');
+});
+
 
 // Initiating socket.io connection
 var io = require('socket.io')(server);
