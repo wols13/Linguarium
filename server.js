@@ -1,6 +1,7 @@
 var port = process.env.PORT||3000;
 var express = require('express');
 var path    = require("path");
+var users_online = [];
 
 //the server code
 //create the server and also handle requests
@@ -41,10 +42,12 @@ io.on('connection', function(client){
 		client.broadcast.emit('text_message', data);
 	});
   client.on('user_connected', function(data){
-    client.broadcast.emit('user_connected', data);
+	users_online.push(data.user);
+    io.sockets.emit('user_connected', users_online);
   });
   client.on('user_disconnected', function(data){
-    client.broadcast.emit('user_disconnected', data);
+	users_online.splice(users_online.indexOf(data.user), 1);
+	client.broadcast.emit('user_disconnected', users_online);
   });
   client.on('coordinates', function(data){
 		client.broadcast.emit('coordinates', data);
