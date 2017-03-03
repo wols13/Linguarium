@@ -248,3 +248,25 @@ body {
 	font-size: 12px;
 	color: #2e3842;
 }
+
+#userlist-inner {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding: 6px;
+}
+
+.user_list_item {
+	font-size: 12px;
+	font-family: arial;
+	letter-spacing: 0.0;
+	color: black;
+	line-height: 20px;
+	margin: 0;
+}
+
+.online-icon {
+	color: green;
+	font-size: 12px;
+	margin: 0 3px 0 0;
+}
