@@ -103,10 +103,11 @@ body {
     border-bottom-right-radius: 3px;
 }
 
-#enter-message {
+#new-message {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	color: black;
 	padding: 1px 6px;
 	height: 30px;
 	border-style: solid;
@@ -203,4 +204,47 @@ body {
 .button:last-child {
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
+}
+
+#past-messages {
+	width: 100%;
+	height: calc(100% - 30px);
+	overflow: auto;
+	padding: 6px;
+}
+
+.my_message {
+    color: white;
+    float: right;
+    clear: both;
+    background-color: #2e3842;
+    border-radius: 13px;
+    margin: 0 0 1px;
+    font-size: 12px;
+    font-family: arial;
+    letter-spacing: 0.0;
+    padding: 6px 8px;
+    max-width: 70%;
+    line-height: 15px;
+}
+
+.not_my_message {
+    color: black;
+    float: left;
+    clear: both;
+    background-color: #E3E3E8;
+    border-radius: 13px;
+    margin: 0 0 1px;
+    font-size: 12px;
+    font-family: arial;
+    letter-spacing: 0.0;
+    padding: 6px 8px;
+    max-width: 70%;
+    line-height: 15px;	
+}
+
+.message_sender {
+	font-weight: bold;
+	font-size: 12px;
+	color: #2e3842;
 }

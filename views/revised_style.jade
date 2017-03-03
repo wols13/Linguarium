@@ -29,7 +29,8 @@ html
           .section-title
             span.section-title-desc Chat
           .section-body
-            input#enter-message(type='text', placeholder='Type a message...')
+            #past-messages
+            input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
         img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
@@ -51,8 +52,6 @@ html
     script(src='js/util.js')
     script(src='https://cdn.socket.io/socket.io-1.7.3.js')
     script(src='js/tools/script_control.js')
-    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
-    script(src="js/tools/dictionary.js")
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') 
     
     //Add any new scripts here
