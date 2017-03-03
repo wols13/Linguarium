@@ -23,9 +23,10 @@ body {
 }
 
 #workspace-container {
+  float: left;
 	position: absolute;
 	float: left;
-	height: calc(100% - 3em);
+	height: 65%;
 	width: 58%;
 	padding: 6px;
 	margin: 3em 0 0 21%;
@@ -240,7 +241,7 @@ body {
     letter-spacing: 0.0;
     padding: 6px 8px;
     max-width: 70%;
-    line-height: 15px;	
+    line-height: 15px;
 }
 
 .message_sender {

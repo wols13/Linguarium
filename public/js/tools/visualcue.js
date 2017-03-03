@@ -18,7 +18,7 @@ socket.on('coordinates', function(data){
 });
 
 // Handling event when user clicks enter to send text message
-$("#teacher-display").click(function(){
+$("#workspace-main").click(function(){
 		var coor = [];
 		var x = event.clientX;
 		var y = event.clientY;
@@ -31,11 +31,11 @@ $("#teacher-display").click(function(){
 function draw_dot(coor1,coor0){
 	var color = '#ff0000';
   var size = '10px';
-	$("#teacher-display").append(
+	$("#workspace-main").append(
 	$('<div id="visualcue_canvas"></div>')
 		.css('position', 'absolute')
-		.css('top', coor1 - 55 + 'px')
-		.css('left', coor0 - 5 + 'px')
+		.css('top', coor1 - 60 + 'px')
+		.css('left', coor0 - 310 + 'px')
 		.css('width', size)
 		.css('height', size)
 		.css('background-color', color)
