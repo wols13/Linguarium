@@ -1,15 +1,15 @@
 body {
 	margin: 0;
 	background-color: rgb(247, 247, 247);
-    background-image: none;
+	background-image: none;
 }
 
 #header.alt h1 {
-    opacity: 1;
+	opacity: 1;
 }
 
 #header.alt {
-    background: #2e3842;
+	background: #2e3842;
 }
 
 #video-text-container {
@@ -23,15 +23,48 @@ body {
 }
 
 #workspace-container {
+	float: left;
 	position: absolute;
 	float: left;
-	height: calc(100% - 3em);
+	height: 65%;
 	width: 58%;
 	padding: 6px;
 	margin: 3em 0 0 21%;
 	border-right: 1px solid #DDDDDD;
 	border-left: 1px solid #DDDDDD;
 	z-index: 100;
+}
+
+#subtitles {
+	width: 500px;
+	height: 100px;
+	background-color: #2E3842;
+	opacity: .8;
+	border-radius: 25px;
+	padding: 20px;
+	top: 400px;
+	position:absolute;
+	right:25%;
+	left:50%;
+	margin-left:-250px;
+}
+
+.hidden-subtitle {
+	display: none;
+}
+
+#subtitle-header {
+	color: #fff;
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#subtitle-text {
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
 }
 
 #tools-container {
@@ -45,7 +78,7 @@ body {
 }
 
 #main-video {
-    width: 100%;
+	width: 100%;
 	height: 24.5%;
 	border-radius: 3px;
 }
@@ -87,10 +120,10 @@ body {
 	padding: 0 0 0 6px;
 	letter-spacing: 0;
 	font-family: arial;
-    color: white;
-    font-size: 12px;
+	color: white;
+	font-size: 12px;
 	border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
 }
 
 .section-body {
@@ -100,7 +133,9 @@ body {
 	border: 1px solid #CCCCCC;
 	background-color: white;
 	border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	overflow-y: scroll;
+	padding: 5px;
 }
 
 #new-message {
@@ -111,7 +146,7 @@ body {
 	padding: 1px 6px;
 	height: 30px;
 	border-style: solid;
-    border-width: 1px 0 0 0;
+	border-width: 1px 0 0 0;
 	border-color: #CCCCCC;
 	border-radius: 0;
 	outline: none;
@@ -123,19 +158,23 @@ body {
 }
 
 *::-webkit-input-placeholder {
-    color: #777777 !important;
+	color: #777777 !important;
 }
 *:-moz-placeholder {
-    /* FF 4-18 */
-    color: #777777 !important;
+	/* FF 4-18 */
+	color: #777777 !important;
 }
 *::-moz-placeholder {
-    /* FF 19+ */
-    color: #777777 !important;
+	/* FF 19+ */
+	color: #777777 !important;
 }
 *:-ms-input-placeholder {
-    /* IE 10+ */
-    color: #777777 !important;
+	/* IE 10+ */
+	color: #777777 !important;
+}
+
+input.form-control {
+	color: #000;
 }
 
 #workspace-main {
@@ -156,16 +195,16 @@ body {
 
 #tool-list {
 	width: 100%;
-    height: 30px;
-    border-radius: 3px;
-    letter-spacing: 0;
-    background-color: #EEEEEE;
-    color: #2e3842;
-    font-family: arial;
-    font-size: 14px;
+	height: 30px;
+	border-radius: 3px;
+	letter-spacing: 0;
+	background-color: #EEEEEE;
+	color: #2e3842;
+	font-family: arial;
+	font-size: 14px;
 	padding-left: 5px;
 	box-shadow: none;
-    border: 1px solid #BBBBBB;
+	border: 1px solid #BBBBBB;
 	cursor: pointer;
 	-webkit-appearance: menulist;
 }
@@ -176,6 +215,24 @@ body {
 	height: calc(100% - 36px);
 }
 
+.panel-body {
+	color: #000;
+	font-size: 12px;
+}
+
+.section-body h3 {
+	color: #000;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.section-body h4 {
+	color: #000;
+	font-size: 14px;
+}
+
+
 .button {
 	display: inline-block;
 	width: 25%;
@@ -185,7 +242,7 @@ body {
 	color: #2e3842;
 	padding: 1px 0 0 0;
 	border-style: solid;
-    border-width: 1px 1px 1px 0;
+	border-width: 1px 1px 1px 0;
 	border-color: #BBBBBB;
 	cursor: pointer;
 	border-radius: 0;
@@ -214,37 +271,59 @@ body {
 }
 
 .my_message {
-    color: white;
-    float: right;
-    clear: both;
-    background-color: #2e3842;
-    border-radius: 13px;
-    margin: 0 0 1px;
-    font-size: 12px;
-    font-family: arial;
-    letter-spacing: 0.0;
-    padding: 6px 8px;
-    max-width: 70%;
-    line-height: 15px;
+	color: white;
+	float: right;
+	clear: both;
+	background-color: #2e3842;
+	border-radius: 13px;
+	margin: 0 0 1px;
+	font-size: 12px;
+	font-family: arial;
+	letter-spacing: 0.0;
+	padding: 6px 8px;
+	max-width: 70%;
+	line-height: 15px;
 }
 
 .not_my_message {
-    color: black;
-    float: left;
-    clear: both;
-    background-color: #E3E3E8;
-    border-radius: 13px;
-    margin: 0 0 1px;
-    font-size: 12px;
-    font-family: arial;
-    letter-spacing: 0.0;
-    padding: 6px 8px;
-    max-width: 70%;
-    line-height: 15px;	
+	color: black;
+	float: left;
+	clear: both;
+	background-color: #E3E3E8;
+	border-radius: 13px;
+	margin: 0 0 1px;
+	font-size: 12px;
+	font-family: arial;
+	letter-spacing: 0.0;
+	padding: 6px 8px;
+	max-width: 70%;
+	line-height: 15px;
 }
 
 .message_sender {
 	font-weight: bold;
 	font-size: 12px;
 	color: #2e3842;
+}
+
+#userlist-inner {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding: 6px;
+}
+
+.user_list_item {
+	font-size: 12px;
+	font-family: arial;
+	letter-spacing: 0.0;
+	color: black;
+	line-height: 20px;
+	margin: 0;
+}
+
+.online-icon {
+	color: green;
+	font-size: 12px;
+	margin: 0 3px 0 0;
 }
