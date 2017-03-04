@@ -4,10 +4,11 @@ html
     title Linguarium
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(onload="namePrompt()")
+  body(onload="namePrompt()" ng-app="dictionary" ng-controller="MainCtrl")
     include ../includes/header
     #video-text-container
       img#main-video(src='http://media.gettyimages.com/videos/young-male-architect-making-a-video-call-from-bureau-video-id592615040?s=640x640')
@@ -35,6 +36,9 @@ html
     #workspace-container
       #workspace-main
         img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        div#subtitles.hidden-subtitle
+          h1#subtitle-header WORD
+          p#subtitle-text DEFINITION
     #tools-container
       select#tool-list(name='tools')
         option(value='dictionary', selected='selected') Dictionary
@@ -44,6 +48,32 @@ html
         .section-title
           span.section-title-desc Dictionary
         .section-body
+          form
+            .form-group
+              .input-group
+                .input-group-addon
+                  i.fa.fa-search
+                input.form-control(type='text', placeholder='Search for a Word', ng-model='search.word')
+          h3 Your Dictionary
+          .panel-group(ng-repeat='entry in entries|filter:search|orderBy:"date_added"')
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a(data-toggle='collapse', href='#{{entry.id}}') {{entry.word}}
+              .panel-collapse.collapse(id='{{entry.id}}')
+                .panel-body 
+                  {{entry.definition}}
+                .panel-footer
+                  button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
+                  button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
+          form(ng-submit='addEntry()')
+            h3 Add a new entry
+            .form-group
+              input.form-control(type='text', placeholder='Word', ng-model='word')
+            .form-group
+              input.form-control(type='text', placeholder='Definition', ng-model='definition')
+            button.btn.btn-primary.center-block(type='submit') Add an Entry
+
 
     // Scripts
     script(src='js/jquery.min.js')
@@ -54,6 +84,8 @@ html
     script(src='js/socket.io-1.7.3.js')
     script(src='js/tools/script_control.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') 
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(src="js/tools/dictionary.js")
     
     //Add any new scripts here
     
