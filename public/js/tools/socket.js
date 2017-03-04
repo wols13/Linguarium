@@ -1,4 +1,5 @@
 var name = "Default";
+var socket = null;
 
 function updateScroll(){
     var element = document.getElementById("past-messages");
@@ -16,9 +17,9 @@ function updateUserList(data){
 
 window.onload = function(){
 	if (location.hostname === "localhost") {
-		var socket = io.connect()
+		socket = io.connect()
 	} else {
-		var socket = io.connect(window.location.hostname);
+		socket = io.connect(window.location.hostname);
 	}
 
 	// Handling incoming text message
@@ -27,7 +28,7 @@ window.onload = function(){
 		$("#past-messages").append(new_message);
 		updateScroll();
 	});
-	
+
 	socket.on('user_connected', function(data) {
 		updateUserList(data);
 	});
@@ -73,6 +74,42 @@ socket.on('coordinates', function(data){
 	  draw_dot(data[1], data[0] );
 		setTimeout(remove_dot, 1500);
 });
+
+//Socket code for dictionary
+socket.on('show_word', function(data){
+  var subtitles = document.getElementById("subtitles");
+  subtitles.removeAttribute("class");
+  var subtitle_word = document.getElementById("subtitle-header");
+  var subtitle_definition = document.getElementById("subtitle-text");
+  subtitle_word.innerHTML = data.word;
+  subtitle_definition.innerHTML = data.definition;
+	var appElement = document.querySelector('[ng-app=dictionary]');
+	var $scope = angular.element(appElement).scope();
+	$scope.$apply(function() {
+		var in_scope = false;
+		for (i = 0; i < $scope.entries.length; i++) {
+			if ($scope.entries[i]['word'] == data.word && $scope.entries[i]['definition'] == data.definition) {
+				in_scope = true;
+				break;
+			};
+		};
+
+		if (in_scope == false) {
+			$scope.entries.push({
+				id: data.id,
+				word: data.word,
+				definition: data.definition,
+				date_added: data.date_added,
+			});
+		};
+	});
+});
+
+socket.on('remove_word', function(data) {
+	var subtitles = document.getElementById("subtitles");
+	subtitles.className += "hidden-subtitle";
+});
+
 
 // Handling event when user clicks enter to send text message
 $("#workspace-main").click(function(){
