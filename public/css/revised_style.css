@@ -134,6 +134,9 @@ body {
 	background-color: white;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
+}
+
+#dictionary-container .section-body {
 	overflow-y: scroll;
 	padding: 5px;
 }
