@@ -110,6 +110,11 @@ socket.on('remove_word', function(data) {
 	subtitles.className += "hidden-subtitle";
 });
 
+socket.on("connect", function() {
+       var whiteboard = new Whiteboard($("#whiteboard"), socket);
+     });
+
+
 
 // Handling event when user clicks enter to send text message
 $("#workspace-main").click(function(){
