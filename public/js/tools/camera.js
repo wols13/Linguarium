@@ -1,5 +1,5 @@
 // Grab elements, create settings, etc.
-var video = document.getElementById('video');
+var video = document.getElementById('main-video');
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
