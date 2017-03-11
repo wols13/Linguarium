@@ -112,6 +112,18 @@ socket.on('remove_word', function(data) {
 
 socket.on("connect", function() {
        var whiteboard = new Whiteboard($("#whiteboard"), socket);
+       $("#blackpen").click(function(){
+       	 whiteboard.color = "#4d4d4d";
+         whiteboard.thickness = 4;
+       });
+       $("#redpen").click(function(){
+       	 whiteboard.color = "#FF0000";
+         whiteboard.thickness = 4;
+       });
+       $("#eraser").click(function(){
+          whiteboard.color = "#ffffff";
+          whiteboard.thickness = 10;
+       });
      });
 
 

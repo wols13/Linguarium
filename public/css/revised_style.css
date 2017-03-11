@@ -39,10 +39,17 @@ body {
 	float: left;
 	position: absolute;
 	float: left;
-	height: 65%;
+	height: 100%;
 	width: 100%;
-	padding: 6px;
+	background-color: #ffffff;
+	border: 3px;
+	border-color: #4d4d4d;
 
+}
+
+#whiteboardtools{
+		float: left;
+		position:absolute;
 }
 
 #subtitles {
