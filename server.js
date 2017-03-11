@@ -21,8 +21,12 @@ app.get('/',function(req,res){
     res.render('index');
 });
 
-app.get('/revised_style',function(req,res){
-    res.render('revised_style');
+app.get('/teacher_demo',function(req,res){
+    res.render('teacher_demo.jade');
+});
+
+app.get('/student_demo',function(req,res){
+    res.render('student_demo.jade');
 });
 
 
