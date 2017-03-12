@@ -257,8 +257,9 @@ input.form-control {
 	background-color: #2e3842;
 }
 
-.hand.active {
-	
+#hand.active {
+	color: white;
+	background-color: #2e3842;
 }
 
 .button i {
