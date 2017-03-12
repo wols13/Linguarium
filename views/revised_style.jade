@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(onload="namePrompt()" ng-app="dictionary" ng-controller="MainCtrl")
+  body( ng-app="dictionary" ng-controller="MainCtrl")
     include ../includes/header
     #video-text-container
       img#main-video(src='http://media.gettyimages.com/videos/young-male-architect-making-a-video-call-from-bureau-video-id592615040?s=640x640')
@@ -97,6 +97,7 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
     script(src='js/tools/script_control.js')
     script(src="js/tools/dictionary_angular.js")
+    script(src='js/bundle.js')
 
     //Add any new scripts here
 
