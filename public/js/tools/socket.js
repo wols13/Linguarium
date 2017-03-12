@@ -59,7 +59,10 @@ window.onload = function(){
            }
            $("#new-message").val('');
            googleTranslate.translate(sentence, 'en', function(err, translation) {
-             new_message = "<span class='my_message'>" + "Translation: " + translation.translatedText + "</span><br>";
+             if (translation.translatedText == sentence){
+                new_message = "<span class='my_message'>"+"Can't find translation. Please try again."+"</span><br>";
+             }
+             else {new_message = "<span class='my_message'>" + "Translation: " + translation.translatedText + "</span><br>";}
              	$("#past-messages").append(new_message);
         });
 
