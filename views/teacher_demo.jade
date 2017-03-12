@@ -8,8 +8,21 @@ html
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(onload="namePrompt()" ng-app="dictionary" ng-controller="MainCtrl")
+  body(ng-app="dictionary" ng-controller="MainCtrl")
     include ../includes/header
+    #lecture-items
+      #lecture-items-toggle
+        i#toggle-icon.fa.fa-chevron-up(aria-hidden='true')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(1)' src='images/whiteboard.jpg')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(2)' src='http://www.showeet.com/wp-content/gallery/1-0057-title-slide-templates-43/03-Title-Slide-PowerPoint-Template-Introduction.PNG')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(3)' src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(4)' src='http://www.showeet.com/wp-content/gallery/1-0057-title-slide-templates-43/18-Title-Slide-PowerPoint-Template-QA-Session.PNG')
+      .lecture-item
+        i.fa.fa-plus-circle(aria-hidden='true')
     #video-text-container
       video#main-video
       #media-controls
@@ -35,7 +48,10 @@ html
             input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
-        img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        img#lecture-item1.workspace-item(src='images/whiteboard.jpg')
+        iframe#lecture-item2.workspace-item(src='http://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
+        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        iframe#lecture-item4.workspace-item(src='http://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
           p#subtitle-text DEFINITION

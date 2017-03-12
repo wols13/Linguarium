@@ -1,11 +1,12 @@
 var name = "Default";
 var socket = null;
+var lecture_items_hidden = 1;
 
 function updateScroll(){
     var element = document.getElementById("past-messages");
     element.scrollTop = element.scrollHeight;
 }
-
+setLectureItem = function(item_no){};
 function updateUserList(data){
 	var user_list = "";
 	for (var i = 0; i < data.length; i++){
@@ -111,7 +112,6 @@ socket.on('remove_word', function(data) {
 });
 
 
-// Handling event when user clicks enter to send text message
 $("#workspace-main").click(function(){
 		var coor = [];
 		var x = event.clientX;
@@ -140,7 +140,35 @@ function remove_dot(){
 	$('#visualcue_canvas').remove();
 }
 
+	socket.on('slide_change', function(data) {
+		setLectureItem(data);
+	});
 
+	setLectureItem = function(item_no){
+		for (var i = 1; i < 5; i++){
+			var item_id = "#lecture-item" + i;
+			$(item_id).hide();
+		}
+		var item_id = "#lecture-item" + item_no;
+		$(item_id).show();
+		if (window.location.pathname.split("/")[1] === "teacher_demo"){
+			socket.emit('slide_change', item_no);
+		}
+	};
+	
+	$("#lecture-items-toggle").click(function(){
+		if (lecture_items_hidden == 1){
+			$("#lecture-items").animate({bottom: "0"}, 500);
+			$("#toggle-icon").attr('class', 'fa fa-chevron-down');
+		} else {
+			$("#lecture-items").animate({bottom: "-120px"}, 500);
+			$("#toggle-icon").attr('class', 'fa fa-chevron-up');
+		}
+		lecture_items_hidden = 1 - lecture_items_hidden;
+	});
+	
+	setLectureItem(1);
+	
 	//User disconnected, send signal for disconnect
 	$(window).on("beforeunload", function() {
 		socket.emit('user_disconnected', {user: name});

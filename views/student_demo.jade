@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(onload="namePrompt()" ng-app="dictionary" ng-controller="MainCtrl")
+  body(ng-app="dictionary" ng-controller="MainCtrl")
     include ../includes/header
     #video-text-container
       video#main-video
@@ -35,7 +35,10 @@ html
             input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
-        img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        img#lecture-item1.workspace-item(src='images/whiteboard.jpg')
+        iframe#lecture-item2.workspace-item(src='http://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
+        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        iframe#lecture-item4.workspace-item(src='http://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
           p#subtitle-text DEFINITION

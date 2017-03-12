@@ -56,5 +56,9 @@ io.on('connection', function(client){
   client.on('remove_word', function(data){
     client.broadcast.emit('remove_word', data);
   });
+  
+  client.on('slide_change', function(data){
+    client.broadcast.emit('slide_change', data);
+  });
 });
 io.listen(3010);
