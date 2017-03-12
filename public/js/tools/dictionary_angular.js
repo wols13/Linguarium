@@ -34,14 +34,12 @@ angular.module('dictionary', [])
       subtitle_word.innerHTML = entry.word;
       subtitle_definition.innerHTML = entry.definition;
       socket.emit('show_word', {id: entry.id, word: entry.word, definition: entry.definition, date_added: entry.date_added});
-      console.log('I SENT THE WORD!');
     }
 
     $scope.removeWord = function(entry) {
       var subtitles = document.getElementById("subtitles");
       subtitles.className += "hidden-subtitle";
       socket.emit('remove_word');
-      console.log('I REMOVED THE WORD!');
     }
 
     $scope.toggleSort = function(type) {

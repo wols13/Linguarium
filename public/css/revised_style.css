@@ -257,6 +257,10 @@ input.form-control {
 	background-color: #2e3842;
 }
 
+.hand.active {
+	
+}
+
 .button i {
 	font-size: 14px !important;
 }
