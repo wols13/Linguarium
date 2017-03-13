@@ -3,8 +3,6 @@ function updateUserList(data){
 	for (var i = 0; i < data.length; i++){
 		user_list += "<p class='user_list_item'><i class='fa fa-circle online-icon' aria-hidden='true'></i>" + data[i] + "</p>";
 	}
-	$("#userlist-inner").empty();
-	$("#userlist-inner").append(user_list);
 }
 
 //User disconnected, send signal for disconnect

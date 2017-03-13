@@ -330,8 +330,27 @@ input.form-control {
 	margin: 0;
 }
 
+.user_list_teacher {
+	font-size: 12px;
+	font-family: arial;
+	letter-spacing: 0.0;
+	color: black;
+	line-height: 20px;
+	margin: 0;
+	font-weight: bold;
+}
+
 .online-icon {
 	color: green;
 	font-size: 12px;
 	margin: 0 3px 0 0;
+}
+
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
 }

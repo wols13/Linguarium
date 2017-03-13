@@ -1,5 +1,7 @@
 var name = "Default";
 var socket = null;
+var appElement = document.querySelector('[ng-app=linguarium]');
+var $scope = angular.element(appElement).scope();
 
 function updateScroll(){
     var element = document.getElementById("past-messages");
@@ -11,8 +13,6 @@ function updateUserList(data){
 	for (var i = 0; i < data.length; i++){
 		user_list += "<p class='user_list_item'><i class='fa fa-circle online-icon' aria-hidden='true'></i>" + data[i] + "</p>";
 	}
-	$("#userlist-inner").empty();
-	$("#userlist-inner").append(user_list);
 }
 
 window.onload = function(){
@@ -75,6 +75,9 @@ socket.on('coordinates', function(data){
 		setTimeout(remove_dot, 1500);
 });
 
+//Socket code for users
+
+
 //Socket code for dictionary
 socket.on('show_word', function(data){
   var subtitles = document.getElementById("subtitles");
@@ -83,8 +86,6 @@ socket.on('show_word', function(data){
   var subtitle_definition = document.getElementById("subtitle-text");
   subtitle_word.innerHTML = data.word;
   subtitle_definition.innerHTML = data.definition;
-	var appElement = document.querySelector('[ng-app=dictionary]');
-	var $scope = angular.element(appElement).scope();
 	$scope.$apply(function() {
 		var in_scope = false;
 		for (i = 0; i < $scope.entries.length; i++) {
@@ -140,12 +141,14 @@ function remove_dot(){
 	$('#visualcue_canvas').remove();
 }
 
-
 	//User disconnected, send signal for disconnect
 	$(window).on("beforeunload", function() {
 		socket.emit('user_disconnected', {user: name});
 	});
 
 	name = prompt("Please enter your name", "");
-	socket.emit('user_connected', {user: name});
+
+	var role = $scope.role;
+	
+	socket.emit('user_connected', {user: name, role: role, hand_raised: false, id: user_current_id});
 }
