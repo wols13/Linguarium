@@ -48,7 +48,12 @@ html
             input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
-        img#lecture-item1.workspace-item(src='images/whiteboard.jpg')
+        div#lecture-item1.workspace-item
+          canvas#whiteboard
+          #whiteboardtools
+            button#blackpen.btn.btn-primary(type='button') Black Pen
+            button#redpen.btn.btn-primary(type='button') Red Pen
+            button#eraser.btn.btn-primary(type='button') Eraser
         iframe#lecture-item2.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
         img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
         iframe#lecture-item4.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
@@ -91,11 +96,15 @@ html
               .panel-heading
                 h4.panel-title
                   a(data-toggle='collapse', href='#{{entry.id}}') {{entry.word}}
+                  a#listen(href="javascript:void(0);" ng-click="sayWord(entry)")
+                    i.fa.fa-volume-up(aria-hidden='true' style="float: right;")
               .panel-collapse.collapse(id='{{entry.id}}')
-                .panel-body {{entry.definition}}
+                .panel-body 
+                  {{entry.definition}}
                 .panel-footer
                   button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
                   button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
+                    
 
 
     // Scripts
@@ -109,6 +118,7 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
     script(src='js/tools/script_control.js')
     script(src="js/tools/dictionary_angular.js")
+    script(src='js/bundle.js')
     
     //Add any new scripts here
     

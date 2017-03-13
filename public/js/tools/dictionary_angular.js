@@ -53,4 +53,9 @@ angular.module('dictionary', [])
         console.log($scope.sort);
       }
     }
+
+    $scope.sayWord = function(entry) {
+      var u = new SpeechSynthesisUtterance(entry.word);
+      speechSynthesis.speak(u);
+    }
   }])

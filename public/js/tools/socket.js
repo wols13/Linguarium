@@ -2,6 +2,10 @@ var name = "Default";
 var socket = null;
 var lecture_items_hidden = 1;
 
+var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
+
+
+
 function updateScroll(){
     var element = document.getElementById("past-messages");
     element.scrollTop = element.scrollHeight;
@@ -17,6 +21,7 @@ function updateUserList(data){
 }
 
 window.onload = function(){
+
 	if (location.hostname === "localhost") {
 		socket = io.connect()
 	} else {
@@ -45,7 +50,26 @@ window.onload = function(){
 		if (keyCode == '13'){
 				// Send the text, clear input field and update message buble
 				var new_message = $("#new-message").val();
-				if (new_message.length > 0){
+        var parsed_str = new_message.split(' ');
+        var sentence = '';
+        var i;
+        console.log(parsed_str[0]);
+        if (parsed_str[0] === "/translate") {
+          for (i = 1; i < parsed_str.length; i++) {
+             sentence += parsed_str[i];
+           }
+           $("#new-message").val('');
+           googleTranslate.translate(sentence, 'en', function(err, translation) {
+             if (translation.translatedText == sentence){
+                new_message = "<span class='my_message'>"+"Can't find translation. Please try again."+"</span><br>";
+             }
+             else {new_message = "<span class='my_message'>" + "Translation: " + translation.translatedText + "</span><br>";}
+             	$("#past-messages").append(new_message);
+        });
+
+
+          }
+				else if (new_message.length > 0){
 					socket.emit('text_message', {user: name, message: new_message});
 
 					$("#new-message").val('');
@@ -110,6 +134,23 @@ socket.on('remove_word', function(data) {
 	var subtitles = document.getElementById("subtitles");
 	subtitles.className += "hidden-subtitle";
 });
+
+socket.on("connect", function() {
+       var whiteboard = new Whiteboard($("#whiteboard"), socket);
+       $("#blackpen").click(function(){
+       	 whiteboard.color = "#4d4d4d";
+         whiteboard.thickness = 4;
+       });
+       $("#redpen").click(function(){
+       	 whiteboard.color = "#FF0000";
+         whiteboard.thickness = 4;
+       });
+       $("#eraser").click(function(){
+          whiteboard.color = "#ffffff";
+          whiteboard.thickness = 10;
+       });
+     });
+
 
 
 $("#workspace-main").click(function(){
