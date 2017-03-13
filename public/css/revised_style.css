@@ -37,14 +37,17 @@ body {
 }
 
 #whiteboard {
-	float: left;
 	position: absolute;
-	float: left;
 	height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+
+#lecture-item1 {
 	width: 100%;
-	background-color: #ffffff;
-	border: 3px;
-	border-color: #4d4d4d;
+	height: 89%;
 }
 
 #whiteboardtools{
