@@ -141,7 +141,9 @@ function remove_dot(){
 }
 
 	socket.on('slide_change', function(data) {
-		setLectureItem(data);
+		if (window.location.pathname.split("/")[1] != "teacher_demo"){
+			setLectureItem(data);
+		}
 	});
 
 	setLectureItem = function(item_no){
