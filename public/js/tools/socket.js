@@ -10,7 +10,9 @@ function updateScroll(){
     var element = document.getElementById("past-messages");
     element.scrollTop = element.scrollHeight;
 }
+
 setLectureItem = function(item_no){};
+
 function updateUserList(data){
 	var user_list = "";
 	for (var i = 0; i < data.length; i++){
@@ -217,6 +219,6 @@ function remove_dot(){
 		socket.emit('user_disconnected', {user: name});
 	});
 
-	name = prompt("Please enter your name", "");
+	name = prompt("Please enterYOU your name", "");
 	socket.emit('user_connected', {user: name});
 }
