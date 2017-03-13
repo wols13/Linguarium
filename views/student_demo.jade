@@ -86,12 +86,12 @@ html
                   a#listen(href="javascript:void(0);" ng-click="sayWord(entry)")
                     i.fa.fa-volume-up(aria-hidden='true' style="float: right;")
               .panel-collapse.collapse(id='{{entry.id}}')
-                .panel-body 
+                .panel-body
                   {{entry.definition}}
                 .panel-footer
                   button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
                   button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
-                    
+
 
 
     // Scripts
@@ -105,7 +105,7 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
     script(src='js/tools/script_control.js')
     script(src="js/tools/dictionary_angular.js")
-    //script(src='js/bundle.js')
+    script(src='js/bundle.js')
 
     //Add any new scripts here
 

@@ -2,7 +2,7 @@ var name = "Default";
 var socket = null;
 var lecture_items_hidden = 1;
 
-//var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
+var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
 
 function updateScroll(){
     var element = document.getElementById("past-messages");
@@ -198,7 +198,7 @@ window.onload = function(){
 			socket.emit('slide_change', item_no);
 		}
 	};
-	
+
 	$("#lecture-items-toggle").click(function(){
 		if (lecture_items_hidden == 1){
 			$("#lecture-items").animate({bottom: "0"}, 500);
@@ -209,9 +209,9 @@ window.onload = function(){
 		}
 		lecture_items_hidden = 1 - lecture_items_hidden;
 	});
-	
+
 	setLectureItem(1);
-	
+
 	//User disconnected, send signal for disconnect
 	$(window).on("beforeunload", function() {
 		socket.emit('user_disconnected', {user: name});
