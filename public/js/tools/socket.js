@@ -3,13 +3,19 @@ var socket = null;
 var user_id = Math.floor((Math.random() * 999999) + 1);
 var appElement = document.querySelector('[ng-app=linguarium]');
 var $scope = angular.element(appElement).scope();
+var lecture_items_hidden = 1;
+
+//var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
 
 function updateScroll() {
 	var element = document.getElementById("past-messages");
 	element.scrollTop = element.scrollHeight;
 }
 
+setLectureItem = function(item_no){};
+
 window.onload = function () {
+
 	if (location.hostname === "localhost") {
 		socket = io.connect()
 	} else {
@@ -26,7 +32,7 @@ window.onload = function () {
 	socket.on('user_connected', function (data) {
 		var appElement = document.querySelector('[ng-controller=user_list]');
 		var $scope = angular.element(appElement).scope();
-		$scope.$apply(function() {
+		$scope.$apply(function () {
 			$scope.updateUserList(data);
 		});
 	});
@@ -40,12 +46,12 @@ window.onload = function () {
 	});
 
 	//Raise hand of user
-	socket.on('raise_hand', function(data) {
+	socket.on('raise_hand', function (data) {
 		var appElement = document.querySelector('[ng-controller=user_list]');
 		var $scope = angular.element(appElement).scope();
 		if ($scope.role == 'teacher') {
 			var audio = new Audio('sounds/Ding.mp3');
-     		audio.play();
+			audio.play();
 		}
 		$scope.$apply(function () {
 			$scope.raiseHand(data.id);
@@ -59,7 +65,26 @@ window.onload = function () {
 		if (keyCode == '13') {
 			// Send the text, clear input field and update message buble
 			var new_message = $("#new-message").val();
-			if (new_message.length > 0) {
+			var parsed_str = new_message.split(' ');
+			var sentence = '';
+			var i;
+			console.log(parsed_str[0]);
+			if (parsed_str[0] === "/translate") {
+				for (i = 1; i < parsed_str.length; i++) {
+					sentence += parsed_str[i];
+				}
+				$("#new-message").val('');
+				googleTranslate.translate(sentence, 'en', function (err, translation) {
+					if (translation.translatedText == sentence) {
+						new_message = "<span class='my_message'>" + "Can't find translation. Please try again." + "</span><br>";
+					}
+					else { new_message = "<span class='my_message'>" + "Translation: " + translation.translatedText + "</span><br>"; }
+					$("#past-messages").append(new_message);
+				});
+
+
+			}
+			else if (new_message.length > 0) {
 				socket.emit('text_message', { user: name, message: new_message });
 
 				$("#new-message").val('');
@@ -71,7 +96,6 @@ window.onload = function () {
 		}
 	});
 
-	// Handling incoming text message
 	socket.on('coordinates', function (data) {
 		console.log(data);
 		// $("#teacher-display").
@@ -89,9 +113,6 @@ window.onload = function () {
 		draw_dot(data[1], data[0]);
 		setTimeout(remove_dot, 1500);
 	});
-
-	//Socket code for users
-
 
 	//Socket code for dictionary
 	socket.on('show_word', function (data) {
@@ -113,8 +134,34 @@ window.onload = function () {
 		subtitles.className += "hidden-subtitle";
 	});
 
+	$("#workspace-main").click(function () {
+		var coor = [];
+		var x = event.clientX;
+		var y = event.clientY;
+		coor.push(x);
+		coor.push(y);
+		// var coor = "X coords: " + x + ", Y coords: " + y;
+		socket.emit('coordinates', coor);
+	});
 
-	// Handling event when user clicks enter to send text message
+	socket.on("connect", function () {
+		var whiteboard = new Whiteboard($("#whiteboard"), socket);
+		$("#blackpen").click(function () {
+			whiteboard.color = "#4d4d4d";
+			whiteboard.thickness = 4;
+		});
+		$("#redpen").click(function () {
+			whiteboard.color = "#FF0000";
+			whiteboard.thickness = 4;
+		});
+		$("#eraser").click(function () {
+			whiteboard.color = "#ffffff";
+			whiteboard.thickness = 10;
+		});
+	});
+
+
+
 	$("#workspace-main").click(function () {
 		var coor = [];
 		var x = event.clientX;
@@ -142,6 +189,37 @@ window.onload = function () {
 	function remove_dot() {
 		$('#visualcue_canvas').remove();
 	}
+
+	socket.on('slide_change', function (data) {
+		if (window.location.pathname.split("/")[1] != "teacher_demo") {
+			setLectureItem(data);
+		}
+	});
+
+	setLectureItem = function (item_no) {
+		for (var i = 1; i < 5; i++) {
+			var item_id = "#lecture-item" + i;
+			$(item_id).hide();
+		}
+		var item_id = "#lecture-item" + item_no;
+		$(item_id).show();
+		if (window.location.pathname.split("/")[1] === "teacher_demo") {
+			socket.emit('slide_change', item_no);
+		}
+	};
+
+	$("#lecture-items-toggle").click(function () {
+		if (lecture_items_hidden == 1) {
+			$("#lecture-items").animate({ bottom: "0" }, 500);
+			$("#toggle-icon").attr('class', 'fa fa-chevron-down');
+		} else {
+			$("#lecture-items").animate({ bottom: "-120px" }, 500);
+			$("#toggle-icon").attr('class', 'fa fa-chevron-up');
+		}
+		lecture_items_hidden = 1 - lecture_items_hidden;
+	});
+
+	setLectureItem(1);
 
 	//User disconnected, send signal for disconnect
 	$(window).on("beforeunload", function () {

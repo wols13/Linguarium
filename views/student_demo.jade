@@ -46,7 +46,15 @@ html
             input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
-        img.workspace-image(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        div#lecture-item1.workspace-item
+          canvas#whiteboard
+          #whiteboardtools
+            button#blackpen.btn.btn-primary(type='button') Black Pen
+            button#redpen.btn.btn-primary(type='button') Red Pen
+            button#eraser.btn.btn-primary(type='button') Eraser
+        iframe#lecture-item2.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
+        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        iframe#lecture-item4.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
           p#subtitle-text DEFINITION
@@ -73,7 +81,7 @@ html
                 .input-group-addon
                   i.fa.fa-search
                 input.form-control(type='text', placeholder='Search for a Word', ng-model='search.word')
-          h4 Sort: 
+          h4 Sort:
             button.btn-xs.btn-primary(ng-click="toggleSort('word')")
               | Name
               i(ng-class="sort.descending ? 'fa fa-toggle-down' : 'fa fa-toggle-up'")
@@ -86,8 +94,12 @@ html
               .panel-heading
                 h4.panel-title
                   a(data-toggle='collapse', href='#{{entry.id}}') {{entry.word}}
+                  a#listen(href="javascript:void(0);" ng-click="sayWord(entry)")
+                    i.fa.fa-volume-up(aria-hidden='true' style="float: right;")
               .panel-collapse.collapse(id='{{entry.id}}')
-                .panel-body {{entry.definition}}
+                .panel-body
+                  {{entry.definition}}
+
 
 
     // Scripts
@@ -97,14 +109,15 @@ html
     script(src='js/skel.min.js')
     script(src='js/util.js')
     script(src='js/socket.io-1.7.3.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') 
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
     script(src='js/tools/script_control.js')
     script(src="js/tools/angular_module.js")
     script(src="js/tools/dictionary_angular.js")
     script(src="js/tools/user_list_angular.js")
-    
-    
+
+    //Add any new scripts here
+
     //if lte IE 8
     script(src='js/ie/respond.min.js')
     script(src='js/main.js')

@@ -70,4 +70,9 @@ angular.module('linguarium')
           });
         };
       }
+
+      $scope.sayWord = function (entry) {
+        var u = new SpeechSynthesisUtterance(entry.word);
+        speechSynthesis.speak(u);
+      }
     }])
