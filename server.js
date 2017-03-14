@@ -56,12 +56,17 @@ io.on('connection', function(client){
   client.on('remove_word', function(data){
     client.broadcast.emit('remove_word', data);
   });
+  
+  client.on('slide_change', function(data){
+    client.broadcast.emit('slide_change', data);
+  });
 
   client.on("draw", function(data) {
-  client.broadcast.emit("draw", data);
-});
+    client.broadcast.emit("draw", data);
+  });
+
   client.on("draw begin path", function() {
-  client.broadcast.emit("draw begin path");
-});
+    client.broadcast.emit("draw begin path");
+  });
 });
 io.listen(3010);

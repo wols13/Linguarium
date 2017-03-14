@@ -8,8 +8,21 @@ html
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(onload="namePrompt()" ng-app="dictionary" ng-controller="MainCtrl")
+  body(ng-app="dictionary" ng-controller="MainCtrl")
     include ../includes/header
+    #lecture-items
+      #lecture-items-toggle
+        i#toggle-icon.fa.fa-chevron-up(aria-hidden='true')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(1)' src='images/whiteboard.jpg')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(2)' src='http://www.showeet.com/wp-content/gallery/1-0057-title-slide-templates-43/03-Title-Slide-PowerPoint-Template-Introduction.PNG')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(3)' src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+      .lecture-item
+        img.lecture-item-image(onclick='setLectureItem(4)' src='http://www.showeet.com/wp-content/gallery/1-0057-title-slide-templates-43/18-Title-Slide-PowerPoint-Template-QA-Session.PNG')
+      .lecture-item
+        i.fa.fa-plus-circle(aria-hidden='true')
     #video-text-container
       video#main-video
       #media-controls
@@ -35,11 +48,15 @@ html
             input#new-message(type='text', placeholder='Type a message...')
     #workspace-container
       #workspace-main
-        canvas#whiteboard
-        #whiteboardtools
-          button#blackpen.btn.btn-primary(type='button') Black Pen
-          button#redpen.btn.btn-primary(type='button') Red Pen
-          button#eraser.btn.btn-primary(type='button') Eraser
+        div#lecture-item1.workspace-item
+          canvas#whiteboard
+          #whiteboardtools
+            button#blackpen.btn.btn-primary(type='button') Black Pen
+            button#redpen.btn.btn-primary(type='button') Red Pen
+            button#eraser.btn.btn-primary(type='button') Eraser
+        iframe#lecture-item2.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
+        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        iframe#lecture-item4.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
           p#subtitle-text DEFINITION
@@ -66,7 +83,7 @@ html
                 .input-group-addon
                   i.fa.fa-search
                 input.form-control(type='text', placeholder='Search for a Word', ng-model='search.word')
-          h4 Sort: 
+          h4 Sort:
             button.btn-xs.btn-primary(ng-click="toggleSort('word')")
               | Name
               i(ng-class="sort.descending ? 'fa fa-toggle-down' : 'fa fa-toggle-up'")
@@ -82,12 +99,12 @@ html
                   a#listen(href="javascript:void(0);" ng-click="sayWord(entry)")
                     i.fa.fa-volume-up(aria-hidden='true' style="float: right;")
               .panel-collapse.collapse(id='{{entry.id}}')
-                .panel-body 
+                .panel-body
                   {{entry.definition}}
                 .panel-footer
                   button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
                   button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
-                    
+
 
 
     // Scripts
@@ -97,14 +114,14 @@ html
     script(src='js/skel.min.js')
     script(src='js/util.js')
     script(src='js/socket.io-1.7.3.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') 
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
     script(src='js/tools/script_control.js')
     script(src="js/tools/dictionary_angular.js")
     script(src='js/bundle.js')
-    
+
     //Add any new scripts here
-    
+
     //if lte IE 8
     script(src='js/ie/respond.min.js')
     script(src='js/main.js')

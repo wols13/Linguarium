@@ -83,8 +83,8 @@ var Whiteboard = (function($, window) {
 	function draw(e, socket) {
 		// It seems that layerX is non-standard. We should use something else.
 		// See more: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/layerX
-		var cX = e.layerX - _canvas.offsetLeft;
-		var cY = e.layerY - _canvas.offsetTop;
+		var cX = e.pageX - $("#whiteboard").offset().left;
+		var cY = e.pageY - $("#whiteboard").offset().top;
 
 		_ctx.strokeStyle = _color;
 		_ctx.lineWidth = _thickness;
