@@ -354,3 +354,11 @@ input.form-control {
   overflow: hidden;
   background-color: #e5e5e5;
 }
+
+.raised_hand {
+	color: black;
+}
+
+.not_raised_hand {
+	color: gray;
+}

@@ -19,7 +19,7 @@ html
           i.fa.fa-video-camera(aria-hidden='true')
         .button
           i.fa.fa-volume-up(aria-hidden='true')
-        .button#hand(onclick="raiseHand()")
+        .button#hand
           i.fa.fa-hand-paper-o(aria-hidden='true')
       #userlist-chatbox(ng-controller="user_list")
         #userlist
@@ -31,10 +31,13 @@ html
                 i.fa.fa-circle.online-icon(aria-hidden='true')
                 | Teacher: 
                 {{user.name}}
+              p.user_list_teacher(ng-if="numTeachers == 0") No Teacher Logged In
+              div.divider
               p.user_list_item(ng-repeat='user in users' ng-if="user.role=='student'")
                 i.fa.fa-circle.online-icon(aria-hidden='true')
                 {{user.name}}
-                i#student_hand.fa.fa-hand-paper-o(ng-style="user.raised_hand ? 'color: black;' : 'color: gray;'")
+                i#student_hand.fa.fa-hand-paper-o(ng-class="user.hand_raised ? 'raised_hand' : 'not_raised_hand'")
+              p.user_list_teacher(ng-if="numStudents == 0") No Students Logged In
         #chatbox
           .section-title
             span.section-title-desc Chat
