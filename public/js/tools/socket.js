@@ -5,7 +5,7 @@ var appElement = document.querySelector('[ng-app=linguarium]');
 var $scope = angular.element(appElement).scope();
 var lecture_items_hidden = 1;
 
-var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
+//var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
 
 function updateScroll() {
 	var element = document.getElementById("past-messages");
