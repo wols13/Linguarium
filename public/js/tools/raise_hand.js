@@ -16,6 +16,3 @@ $('#hand').click(function () {
 
     socket.emit('raise_hand', {id: user_id});
 });
-
-
-
