@@ -356,9 +356,9 @@ input.form-control {
 }
 
 .raised_hand {
-	color: black;
+	color: #000;
 }
 
 .not_raised_hand {
-	color: gray;
+	color: #e8e5e5;
 }

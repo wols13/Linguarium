@@ -88,9 +88,6 @@ html
                   a(data-toggle='collapse', href='#{{entry.id}}') {{entry.word}}
               .panel-collapse.collapse(id='{{entry.id}}')
                 .panel-body {{entry.definition}}
-                .panel-footer
-                  button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
-                  button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
 
 
     // Scripts

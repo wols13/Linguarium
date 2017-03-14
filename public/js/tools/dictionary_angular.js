@@ -4,7 +4,7 @@ angular.module('linguarium')
     function ($scope, entries) {
       $scope.search = '';
       //Some preset words to begin with
-      $scope.entries = [{ id: 1, word: 'Motivate', definition: 'To Push Someone To Do Something', date_added: new Date() }, { id: 2, word: 'Challenge', definition: 'To Pokemon Battle Someone', date_added: new Date() }];
+      $scope.entries = [{ id: 1, word: 'Motivate', definition: 'To Push Someone To Do Something', date_added: new Date() }, { id: 2, word: 'Challenge', definition: 'To fight someone', date_added: new Date() }];
       var current_id = $scope.entries.length + 1;
       $scope.sort = {
         type: 'word',

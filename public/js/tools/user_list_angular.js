@@ -10,7 +10,6 @@ angular.module('linguarium')
       $scope.numStudents = 0;
 
       $scope.addUser = function (data) {
-        console.log('Adding ' + data.name)
         $scope.users.push({
           name: data.name,
           role: data.role,
