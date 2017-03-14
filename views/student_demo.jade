@@ -7,7 +7,7 @@ html
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
-    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
   body(ng-app="linguarium" ng-init="role='student'")
     include ../includes/header
     #video-text-container
@@ -53,7 +53,7 @@ html
             button#redpen.btn.btn-primary(type='button') Red Pen
             button#eraser.btn.btn-primary(type='button') Eraser
         iframe#lecture-item2.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
-        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        img#lecture-item3.workspace-item(src='https://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
         iframe#lecture-item4.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
@@ -111,10 +111,13 @@ html
     script(src='js/socket.io-1.7.3.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(src="js/tools/bundle.js")
     script(src='js/tools/script_control.js')
     script(src="js/tools/angular_module.js")
     script(src="js/tools/dictionary_angular.js")
     script(src="js/tools/user_list_angular.js")
+
+    
 
     //Add any new scripts here
 

@@ -1,1 +1,1 @@
-angular.module('linguarium', []);
+var app = angular.module('linguarium', []);

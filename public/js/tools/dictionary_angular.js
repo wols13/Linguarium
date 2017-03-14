@@ -1,5 +1,4 @@
-angular.module('linguarium')
-  .controller('dictionary', [
+app.controller('dictionary', [
     '$scope',
     function ($scope, entries) {
       $scope.search = '';
