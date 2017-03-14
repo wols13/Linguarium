@@ -1,6 +1,7 @@
 var port = process.env.PORT || 3000;
 var express = require('express');
 var path = require("path");
+var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
 var users_online = [];
 
 //the server code
@@ -12,6 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('port', (process.env.PORT || 3000));
+
 //start the server and notify it start with the address in the console
 var server = app.listen(port, function () {
   console.log('Server running on port', app.get('port'));
@@ -82,5 +84,16 @@ io.on('connection', function (client) {
   client.on("draw begin path", function() {
     client.broadcast.emit("draw begin path");
   });
+  client.on("translation", function(data) {
+    googleTranslate.translate(data.message, 'en', function (err, translation) {
+          if (translation.translatedText === data.message){
+            client.emit("translated","NN");
+          }
+          else{
+          client.emit("translated",translation.translatedText);
+        }
+      });
+  });
+
 });
 io.listen(3010);

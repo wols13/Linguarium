@@ -5,7 +5,7 @@ var appElement = document.querySelector('[ng-app=linguarium]');
 var $scope = angular.element(appElement).scope();
 var lecture_items_hidden = 1;
 
-//var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
+// var googleTranslate = require('google-translate')('AIzaSyARhPQ5-qLlf6hRyA5V7-a7gzP2QZvtfJY');
 
 function updateScroll() {
 	var element = document.getElementById("past-messages");
@@ -74,15 +74,7 @@ window.onload = function () {
 					sentence += parsed_str[i];
 				}
 				$("#new-message").val('');
-				googleTranslate.translate(sentence, 'en', function (err, translation) {
-					if (translation.translatedText == sentence) {
-						new_message = "<span class='my_message'>" + "Can't find translation. Please try again." + "</span><br>";
-					}
-					else { new_message = "<span class='my_message'>" + "Translation: " + translation.translatedText + "</span><br>"; }
-					$("#past-messages").append(new_message);
-				});
-
-
+				socket.emit('translation', {message: sentence});
 			}
 			else if (new_message.length > 0) {
 				socket.emit('text_message', { user: name, message: new_message });
@@ -94,6 +86,16 @@ window.onload = function () {
 			}
 			return false;
 		}
+	});
+
+	socket.on('translated', function (data) {
+		console.log(data);
+		if (data == 'NN'){
+			new_message = "<span class='my_message'>" + "Can't find translation. Please try again." + "</span><br>";
+		} else {
+			new_message = "<span class='my_message'>" + "Translation: " + data + "</span><br>"; 
+		}
+		$("#past-messages").append(new_message);
 	});
 
 	socket.on('coordinates', function (data) {

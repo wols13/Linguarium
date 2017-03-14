@@ -1,14 +1,14 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@3.10.10
-3 info using node@v6.10.0
+2 info using npm@3.10.9
+3 info using node@v7.0.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle linguarium@1.0.0~prestart: linguarium@1.0.0
 6 silly lifecycle linguarium@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle linguarium@1.0.0~start: linguarium@1.0.0
 8 verbose lifecycle linguarium@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle linguarium@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/Abu/Coding/School/CSC491H/Linguarium/node_modules/.bin:/Users/Abu/.rbenv/shims:/Users/Abu/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/Abu/pebble-dev/PebbleSDK-3.0-dp7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/Abu/.rvm/bin
-10 verbose lifecycle linguarium@1.0.0~start: CWD: /Users/Abu/Coding/School/CSC491H/Linguarium
+9 verbose lifecycle linguarium@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/DZ-14/Desktop/Linguarium/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/apache-maven/bin
+10 verbose lifecycle linguarium@1.0.0~start: CWD: /Users/DZ-14/Desktop/Linguarium
 11 silly lifecycle linguarium@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle linguarium@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle linguarium@1.0.0~start: Failed to exec start script
@@ -23,11 +23,11 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid linguarium@1.0.0
-16 verbose cwd /Users/Abu/Coding/School/CSC491H/Linguarium
+16 verbose cwd /Users/DZ-14/Desktop/Linguarium
 17 error Darwin 16.4.0
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-19 error node v6.10.0
-20 error npm  v3.10.10
+19 error node v7.0.0
+20 error npm  v3.10.9
 21 error code ELIFECYCLE
 22 error linguarium@1.0.0 start: `node server.js`
 22 error Exit status 1
