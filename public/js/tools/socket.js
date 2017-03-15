@@ -49,10 +49,6 @@ window.onload = function () {
 	socket.on('raise_hand', function (data) {
 		var appElement = document.querySelector('[ng-controller=user_list]');
 		var $scope = angular.element(appElement).scope();
-		if ($scope.role == 'teacher') {
-			var audio = new Audio('sounds/Ding.mp3');
-			audio.play();
-		}
 		$scope.$apply(function () {
 			$scope.raiseHand(data.id);
 		});

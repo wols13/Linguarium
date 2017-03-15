@@ -20,6 +20,8 @@ app.controller('user_list', [
 
       $scope.updateUserList = function(data) {
         $scope.users = [{}];
+        $scope.numTeachers = 0;
+        $scope.numStudents = 0;
         for (var i = 0; i < data.length; i++) {
             if(data[i].role == 'teacher') {
               $scope.numTeachers += 1;
@@ -34,6 +36,10 @@ app.controller('user_list', [
         for (var i = 0; i < $scope.users.length; i++) {
           if ($scope.users[i].id == user_id) {
             $scope.users[i].hand_raised = !$scope.users[i].hand_raised;
+            		if ($scope.role == 'teacher' && $scope.users[i].hand_raised == true) {
+                  var audio = new Audio('sounds/Ding.mp3');
+                  audio.play();
+                }
           }
         }
       }
