@@ -7,8 +7,8 @@ html
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
-    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(ng-app="dictionary" ng-controller="MainCtrl")
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+  body(ng-app="linguarium" ng-init="role='student'")
     include ../includes/header
     #video-text-container
       video#main-video
@@ -19,14 +19,25 @@ html
           i.fa.fa-video-camera(aria-hidden='true')
         .button
           i.fa.fa-volume-up(aria-hidden='true')
-        .button
+        .button#hand
           i.fa.fa-hand-paper-o(aria-hidden='true')
-      #userlist-chatbox
+      #userlist-chatbox(ng-controller="user_list")
         #userlist
           .section-title
             span.section-title-desc Users online
           .section-body
             #userlist-inner
+              p.user_list_teacher(ng-repeat='user in users' ng-if="user.role=='teacher'") 
+                i.fa.fa-circle.online-icon(aria-hidden='true')
+                | Teacher: 
+                {{user.name}}
+              p.user_list_teacher(ng-if="numTeachers == 0") No Teacher Logged In
+              div.divider
+              p.user_list_item(ng-repeat='user in users' ng-if="user.role=='student'")
+                i.fa.fa-circle.online-icon(aria-hidden='true')
+                {{user.name}}
+                i#student_hand.fa.fa-hand-paper-o(ng-class="user.hand_raised ? 'raised_hand' : 'not_raised_hand'")
+              p.user_list_teacher(ng-if="numStudents == 0") No Students Logged In
         #chatbox
           .section-title
             span.section-title-desc Chat
@@ -42,7 +53,7 @@ html
             button#redpen.btn.btn-primary(type='button') Red Pen
             button#eraser.btn.btn-primary(type='button') Eraser
         iframe#lecture-item2.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture1.pdf&embedded=true', type='application/pdf', frameborder='0')
-        img#lecture-item3.workspace-item(src='http://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
+        img#lecture-item3.workspace-item(src='https://www.lestnic.com/wp-content/uploads/2016/01/Turquiose-Toss-Pillows-for-Traditional-Living-Room-Ideas-with-Decorative-Fireplace-and-Cute-TV.jpg')
         iframe#lecture-item4.workspace-item(src='https://docs.google.com/gview?url=http://ayodejioyewole.com/Lecture2.pdf&embedded=true', type='application/pdf', frameborder='0')
         div#subtitles.hidden-subtitle
           h1#subtitle-header WORD
@@ -52,7 +63,7 @@ html
         option(value='dictionary', selected='selected') Dictionary
         option(value='notes') Notes
         option(value='flashcards') Flash cards
-      #dictionary-container.tool-container
+      #dictionary-container.tool-container(ng-controller="dictionary")
         .section-title
           span.section-title-desc Dictionary
         .section-body
@@ -88,9 +99,6 @@ html
               .panel-collapse.collapse(id='{{entry.id}}')
                 .panel-body
                   {{entry.definition}}
-                .panel-footer
-                  button.btn-xs.btn-primary(ng-click='showWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Show
-                  button.btn-xs.btn-primary(ng-click='removeWord(entry)', ng-disabled='entry.disabled' style="width: 50%;") Remove
 
 
 
@@ -103,9 +111,13 @@ html
     script(src='js/socket.io-1.7.3.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(src="js/tools/bundle.js")
     script(src='js/tools/script_control.js')
+    script(src="js/tools/angular_module.js")
     script(src="js/tools/dictionary_angular.js")
-    script(src='js/bundle.js')
+    script(src="js/tools/user_list_angular.js")
+
+    
 
     //Add any new scripts here
 

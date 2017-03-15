@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='css/main.css')
     link(href='css/revised_style.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-  body(ng-app="dictionary" ng-controller="MainCtrl")
+  body(ng-app="linguarium" ng-init="role='teacher'")
     include ../includes/header
     #lecture-items
       #lecture-items-toggle
@@ -33,13 +33,24 @@ html
         .button
           i.fa.fa-volume-up(aria-hidden='true')
         .button
-          i.fa.fa-hand-paper-o(aria-hidden='true')
-      #userlist-chatbox
+          i.fa.fa-flag(aria-hidden='true')
+      #userlist-chatbox(ng-controller="user_list")
         #userlist
           .section-title
             span.section-title-desc Users online
           .section-body
             #userlist-inner
+              p.user_list_teacher(ng-repeat='user in users' ng-if="user.role=='teacher'") 
+                i.fa.fa-circle.online-icon(aria-hidden='true')
+                | Teacher: 
+                {{user.name}}
+              p.user_list_teacher(ng-if="numTeachers == 0") No Teacher Logged In
+              div.divider
+              p.user_list_item(ng-repeat='user in users' ng-if="user.role=='student'")
+                i.fa.fa-circle.online-icon(aria-hidden='true')
+                {{user.name}}
+                i#student_hand.fa.fa-hand-paper-o(ng-class="user.hand_raised ? 'raised_hand' : 'not_raised_hand'")
+              p.user_list_teacher(ng-if="numStudents == 0") No Students Logged In
         #chatbox
           .section-title
             span.section-title-desc Chat
@@ -65,7 +76,7 @@ html
         option(value='dictionary', selected='selected') Dictionary
         option(value='notes') Notes
         option(value='flashcards') Flash cards
-      #dictionary-container.tool-container
+      #dictionary-container.tool-container(ng-controller="dictionary")
         .section-title
           span.section-title-desc Dictionary
         .section-body
@@ -116,12 +127,13 @@ html
     script(src='js/socket.io-1.7.3.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(src="js/tools/bundle.js")
     script(src='js/tools/script_control.js')
+    script(src="js/tools/angular_module.js")
     script(src="js/tools/dictionary_angular.js")
-    script(src='js/bundle.js')
-
-    //Add any new scripts here
+    script(src="js/tools/user_list_angular.js")
 
     //if lte IE 8
     script(src='js/ie/respond.min.js')
     script(src='js/main.js')
+    
